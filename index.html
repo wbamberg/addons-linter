@@ -830,12 +830,12 @@
 <td>✅</td>
 <td>error</td>
 <td>CSS syntax error</td>
+<td></td>
 <td>A CSS syntax error was detected</td>
 <td></td>
 <td>N/A</td>
 <td>N/A</td>
 <td>CSS_SYNTAX_ERROR</td>
-<td></td>
 </tr>
 </tbody>
 </table>
@@ -1344,7 +1344,7 @@
 <td>warning</td>
 <td>optionsType</td>
 <td></td>
-<td>&lt;em😮ptionsType&gt; has bad value.</td>
+<td><code>&lt;em:optionsType&gt;</code> has bad value.</td>
 <td>install.rdf</td>
 <td></td>
 <td></td>
@@ -1841,7 +1841,7 @@
 <td>warning</td>
 <td>should_be_true</td>
 <td></td>
-<td>Add-on should set &lt;em:unpack&gt; to true</td>
+<td>Add-on should set <code>&lt;em:unpack&gt;</code> to true</td>
 <td></td>
 <td></td>
 <td></td>
@@ -1852,7 +1852,7 @@
 <td>notice</td>
 <td>should_be_false</td>
 <td></td>
-<td>Add-on contains JAR files, no &lt;em:unpack&gt;</td>
+<td>Add-on contains JAR files, no <code>&lt;em:unpack&gt;</code></td>
 <td></td>
 <td></td>
 <td></td>
@@ -1914,7 +1914,7 @@
 <td>error</td>
 <td>invalid_em_type</td>
 <td></td>
-<td>The only valid values for &lt;em:type&gt; are 2, 4, 8, and 32</td>
+<td>The only valid values for <code>&lt;em:type&gt;</code> are 2, 4, 8, and 32</td>
 <td></td>
 <td><a href="https://github.com/mozilla/amo-validator/blob/master/validator/typedetection.py#L46">46</a></td>
 <td>('typedetection', 'detect_type', 'invalid_em_type')</td>
@@ -1925,7 +1925,7 @@
 <td>notice</td>
 <td>no_em:type</td>
 <td></td>
-<td>No &lt;em:type&gt; element found in install.rdf</td>
+<td>No <code>&lt;em:type&gt;</code> element found in install.rdf</td>
 <td></td>
 <td><a href="https://github.com/mozilla/amo-validator/blob/master/validator/typedetection.py#L66">66</a></td>
 <td>('typedetection', 'detect_type', 'no_em:type')</td>
@@ -2060,7 +2060,7 @@
 <td>warning</td>
 <td>duplicate_targetapps</td>
 <td>addon?</td>
-<td>Found duplicate &lt;em:targetApplication&gt; elements. Multiple targetApplication elements were found in the install.manifest file that refer to the same application GUID. There should not be duplicate target applications entries.</td>
+<td>Found duplicate <code>&lt;em:targetApplication&gt;</code> elements. Multiple targetApplication elements were found in the install.manifest file that refer to the same application GUID. There should not be duplicate target applications entries.</td>
 <td>install.rdf</td>
 <td></td>
 <td></td>
