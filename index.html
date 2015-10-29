@@ -11,12 +11,25 @@
     padding: 20px;
     overflow: auto !important;
   }
+
+  .header-anchor {
+    display: none;
+  }
+
+  h1:hover a,
+  h2:hover a,
+  h3:hover a,
+  h4:hover a,
+  h5:hover a {
+    display: inline;
+    color: #ccc;
+  }
 </style>
 <body class="markdown-body">
-  <h1>Validator Rules</h1>
+  <h1 id="validator-rules">Validator Rules <a class="header-anchor" href="#validator-rules" aria-hidden="true">¶</a></h1>
 <p>We should try and list out all the validation rules we know of by file type. E.g. .js, .rdf, .manifest etc.</p>
-<h2>JavaScript</h2>
-<h3>Actions</h3>
+<h2 id="javascript">JavaScript <a class="header-anchor" href="#javascript" aria-hidden="true">¶</a></h2>
+<h3 id="actions">Actions <a class="header-anchor" href="#actions" aria-hidden="true">¶</a></h3>
 <table>
 <thead>
 <tr>
@@ -133,7 +146,7 @@
 </tr>
 </tbody>
 </table>
-<h3>Call definitions</h3>
+<h3 id="call-definitions">Call definitions <a class="header-anchor" href="#call-definitions" aria-hidden="true">¶</a></h3>
 <table>
 <thead>
 <tr>
@@ -239,7 +252,7 @@
 </tr>
 </tbody>
 </table>
-<h3>Entity values</h3>
+<h3 id="entity-values">Entity values <a class="header-anchor" href="#entity-values" aria-hidden="true">¶</a></h3>
 <p><em>Deprecated entities are checked with a generated set of rules</em></p>
 <table>
 <thead>
@@ -324,7 +337,7 @@
 </tr>
 </tbody>
 </table>
-<h3>instanceactions</h3>
+<h3 id="instanceactions">instanceactions <a class="header-anchor" href="#instanceactions" aria-hidden="true">¶</a></h3>
 <table>
 <thead>
 <tr>
@@ -430,7 +443,7 @@
 </tr>
 </tbody>
 </table>
-<h3>instanceproperties</h3>
+<h3 id="instanceproperties">instanceproperties <a class="header-anchor" href="#instanceproperties" aria-hidden="true">¶</a></h3>
 <table>
 <thead>
 <tr>
@@ -536,7 +549,7 @@
 </tr>
 </tbody>
 </table>
-<h3>jsshell</h3>
+<h3 id="jsshell">jsshell <a class="header-anchor" href="#jsshell" aria-hidden="true">¶</a></h3>
 <table>
 <thead>
 <tr>
@@ -587,7 +600,7 @@
 </tr>
 </tbody>
 </table>
-<h3>jstypes</h3>
+<h3 id="jstypes">jstypes <a class="header-anchor" href="#jstypes" aria-hidden="true">¶</a></h3>
 <table>
 <thead>
 <tr>
@@ -660,7 +673,7 @@
 </tr>
 </tbody>
 </table>
-<h3>predefinedentities</h3>
+<h3 id="predefinedentities">predefinedentities <a class="header-anchor" href="#predefinedentities" aria-hidden="true">¶</a></h3>
 <p><em>this file appear to contain lot of data but looks to be used elsewhere a second pass would be good to check</em></p>
 <table>
 <thead>
@@ -712,7 +725,7 @@
 </tr>
 </tbody>
 </table>
-<h3>Traverser</h3>
+<h3 id="traverser">Traverser <a class="header-anchor" href="#traverser" aria-hidden="true">¶</a></h3>
 <table>
 <thead>
 <tr>
@@ -752,8 +765,8 @@
 </tr>
 </tbody>
 </table>
-<h2>Markup</h2>
-<h3>CSS</h3>
+<h2 id="markup">Markup <a class="header-anchor" href="#markup" aria-hidden="true">¶</a></h2>
+<h3 id="css">CSS <a class="header-anchor" href="#css" aria-hidden="true">¶</a></h3>
 <table>
 <thead>
 <tr>
@@ -826,7 +839,7 @@
 </tr>
 </tbody>
 </table>
-<h3>HTML</h3>
+<h3 id="html">HTML <a class="header-anchor" href="#html" aria-hidden="true">¶</a></h3>
 <table>
 <thead>
 <tr>
@@ -1042,7 +1055,7 @@
 </tr>
 </tbody>
 </table>
-<h2>chrome.manifest</h2>
+<h2 id="chromemanifest">chrome.manifest <a class="header-anchor" href="#chromemanifest" aria-hidden="true">¶</a></h2>
 <table>
 <thead>
 <tr>
@@ -1115,7 +1128,7 @@
 </tr>
 </tbody>
 </table>
-<h2>Content</h2>
+<h2 id="content">Content <a class="header-anchor" href="#content" aria-hidden="true">¶</a></h2>
 <table>
 <thead>
 <tr>
@@ -1243,7 +1256,7 @@
 </tr>
 </tbody>
 </table>
-<h2>Install.rdf</h2>
+<h2 id="installrdf">Install.rdf <a class="header-anchor" href="#installrdf" aria-hidden="true">¶</a></h2>
 <p>TODO: Alot of these are generated so this will need expanded with each unique code.</p>
 <table>
 <thead>
@@ -1383,7 +1396,7 @@
 </tr>
 </tbody>
 </table>
-<h2>Jetpack</h2>
+<h2 id="jetpack">Jetpack <a class="header-anchor" href="#jetpack" aria-hidden="true">¶</a></h2>
 <table>
 <thead>
 <tr>
@@ -1522,7 +1535,7 @@
 </tr>
 </tbody>
 </table>
-<h2>l10ncompleteness</h2>
+<h2 id="l10ncompleteness">l10ncompleteness <a class="header-anchor" href="#l10ncompleteness" aria-hidden="true">¶</a></h2>
 <table>
 <thead>
 <tr>
@@ -1628,7 +1641,7 @@
 </tr>
 </tbody>
 </table>
-<h2>langpacks</h2>
+<h2 id="langpacks">langpacks <a class="header-anchor" href="#langpacks" aria-hidden="true">¶</a></h2>
 <table>
 <thead>
 <tr>
@@ -1690,7 +1703,7 @@
 </tr>
 </tbody>
 </table>
-<h2>package.json</h2>
+<h2 id="packagejson">package.json <a class="header-anchor" href="#packagejson" aria-hidden="true">¶</a></h2>
 <table>
 <thead>
 <tr>
@@ -1719,7 +1732,7 @@
 </tr>
 </tbody>
 </table>
-<h2>Package layout</h2>
+<h2 id="package-layout">Package layout <a class="header-anchor" href="#package-layout" aria-hidden="true">¶</a></h2>
 <table>
 <thead>
 <tr>
@@ -1869,7 +1882,7 @@
 </tr>
 </tbody>
 </table>
-<h2>Type detection</h2>
+<h2 id="type-detection">Type detection <a class="header-anchor" href="#type-detection" aria-hidden="true">¶</a></h2>
 <table>
 <thead>
 <tr>
@@ -1931,7 +1944,7 @@
 </tr>
 </tbody>
 </table>
-<h2>Themes</h2>
+<h2 id="themes">Themes <a class="header-anchor" href="#themes" aria-hidden="true">¶</a></h2>
 <table>
 <thead>
 <tr>
@@ -1971,7 +1984,7 @@
 </tr>
 </tbody>
 </table>
-<h2>Target Versions</h2>
+<h2 id="target-versions">Target Versions <a class="header-anchor" href="#target-versions" aria-hidden="true">¶</a></h2>
 <table>
 <thead>
 <tr>
@@ -2066,7 +2079,7 @@
 </tr>
 </tbody>
 </table>
-<h2>Regex Tests</h2>
+<h2 id="regex-tests">Regex Tests <a class="header-anchor" href="#regex-tests" aria-hidden="true">¶</a></h2>
 <p><em>Note the rule names for these do not come from the code</em></p>
 <table>
 <thead>
@@ -2360,7 +2373,7 @@
 </tr>
 </tbody>
 </table>
-<h2>Thunderbird Regex Tests</h2>
+<h2 id="thunderbird-regex-tests">Thunderbird Regex Tests <a class="header-anchor" href="#thunderbird-regex-tests" aria-hidden="true">¶</a></h2>
 <p><em>Note the rule names for these do not come from the code</em></p>
 <table>
 <thead>
