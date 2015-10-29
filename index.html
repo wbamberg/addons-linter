@@ -1,0 +1,2395 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Validator Rules</title>
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
+  <link rel="stylesheet" href="gfm.css">
+</head>
+<style type="text/css">
+  body.markdown-body {
+    padding: 20px;
+    overflow: auto !important;
+  }
+</style>
+<body class="markdown-body">
+  <h1>Validator Rules</h1>
+<p>We should try and list out all the validation rules we know of by file type. E.g. .js, .rdf, .manifest etc.</p>
+<h2>JavaScript</h2>
+<h3>Actions</h3>
+<table>
+<thead>
+<tr>
+<th>Done?</th>
+<th>MsgType</th>
+<th>Rule name</th>
+<th>Addon type</th>
+<th>Description</th>
+<th>File Type</th>
+<th>Source ref</th>
+<th>Old Code</th>
+<th>New Code</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>❌</td>
+<td>warning</td>
+<td>dangerous_contract</td>
+<td></td>
+<td>Dangerous XPCOM contract ID</td>
+<td></td>
+<td><a href="https://github.com/mozilla/amo-validator/blob/master/validator/testcases/javascript/actions.py">testcases/javascript/actions.py</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>❌</td>
+<td>warning</td>
+<td>banned_identifier</td>
+<td></td>
+<td>Banned or deprecated JavaScript Identifier</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>❌</td>
+<td>warning</td>
+<td>complex_prefs_defaults_code</td>
+<td></td>
+<td>Complex code should not appear in preference defaults files</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>❌</td>
+<td>warning</td>
+<td>called_dangerous_global</td>
+<td></td>
+<td><code>%s</code> called in potentially dangerous manner'</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>❌</td>
+<td>error?</td>
+<td>eval</td>
+<td></td>
+<td>In order to prevent vulnerabilities, the <code>setTimeout</code> 'and <code>setInterval</code> functions should be called only with function expressions as their first argument.</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>❌</td>
+<td>warning</td>
+<td>low_level_module (not from src)</td>
+<td></td>
+<td>Usage of low-level or non-SDK interface</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>❌</td>
+<td>warning</td>
+<td>widget</td>
+<td></td>
+<td>Use of deprecated SDK module</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>❎</td>
+<td>notice</td>
+<td>_readonly_top</td>
+<td></td>
+<td>window.top is a reserved variable</td>
+<td></td>
+<td></td>
+<td>('testcases_javascript_actions', '_readonly_top'</td>
+<td><strong>Removed</strong></td>
+</tr>
+<tr>
+<td>❌</td>
+<td>warning</td>
+<td>global_overwrite</td>
+<td></td>
+<td>Global variable overwrite</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3>Call definitions</h3>
+<table>
+<thead>
+<tr>
+<th>Done?</th>
+<th>MsgType</th>
+<th>Rule name</th>
+<th>Addon type</th>
+<th>Description</th>
+<th>File Type</th>
+<th>Source ref</th>
+<th>Old Code</th>
+<th>New Code</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>❌</td>
+<td>warning</td>
+<td>webbrowserpersist</td>
+<td></td>
+<td>nsIWebBrowserPersist should no longer be used</td>
+<td></td>
+<td><a href="https://github.com/mozilla/amo-validator/blob/master/validator/testcases/javascript/call_definitions.py">testcases/javascript/call_definitions.py</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>❌</td>
+<td>warning</td>
+<td>webbrowserpersist_saveuri</td>
+<td></td>
+<td>saveURI should not be called with a null load context</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>❌</td>
+<td>notice</td>
+<td>deprec</td>
+<td></td>
+<td>Deprecated nsIJSON methods in use</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>❌</td>
+<td>warning</td>
+<td>shallow</td>
+<td></td>
+<td>Shallow XPCOM wrappers should not be used</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>❌</td>
+<td>notice</td>
+<td>%s_nonliteral</td>
+<td></td>
+<td><code>%s</code> called with non-literal parameter.</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>✅</td>
+<td>notice</td>
+<td>opendialog_nonlit_uri</td>
+<td></td>
+<td>openDialog called with non-literal parameter</td>
+<td></td>
+<td></td>
+<td>('js', 'instanceactions', 'openDialog_nonliteral'</td>
+<td>OPENDIALOG_NONLIT_URI</td>
+</tr>
+<tr>
+<td>❌</td>
+<td>warning</td>
+<td>%s_remote_uri</td>
+<td></td>
+<td><code>%s</code> called with non-local URI.</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>✅</td>
+<td>warning</td>
+<td>opendialog_remote_uri</td>
+<td></td>
+<td>openDialog called with non-local URI</td>
+<td></td>
+<td></td>
+<td>('js', 'instanceactions', 'openDialog_remote_uri'</td>
+<td>OPENDIALOG_REMOTE_URI</td>
+</tr>
+</tbody>
+</table>
+<h3>Entity values</h3>
+<p><em>Deprecated entities are checked with a generated set of rules</em></p>
+<table>
+<thead>
+<tr>
+<th>Done?</th>
+<th>MsgType</th>
+<th>Rule name</th>
+<th>Addon type</th>
+<th>Description</th>
+<th>File Type</th>
+<th>Source ref</th>
+<th>Old Code</th>
+<th>New Code</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>❌</td>
+<td>warning</td>
+<td>deprecated_entity</td>
+<td></td>
+<td>THIS IS A GENERATED ERROR</td>
+<td></td>
+<td><a href="https://github.com/mozilla/amo-validator/blob/master/validator/testcases/javascript/entity_values.py">testcases/javascript/entity_values.py</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>❌</td>
+<td>warning</td>
+<td>evil</td>
+<td></td>
+<td>Use of <code>document.write</code> strongly discouraged.</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>❌</td>
+<td>warning</td>
+<td>nsIDNSServiceResolve</td>
+<td></td>
+<td><code>nsIDNSService.resolve()</code> should not be used.</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>❌</td>
+<td>warning</td>
+<td>nsISound_play</td>
+<td></td>
+<td><code>nsISound.play</code> should not be used</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>❌</td>
+<td>warning</td>
+<td>init</td>
+<td></td>
+<td><code>init</code> should not be called with a null first argument</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>❌</td>
+<td>warning</td>
+<td>override</td>
+<td></td>
+<td>Extensions must not alter user preferences such as the new tab URL without explicit user consent.</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3>instanceactions</h3>
+<table>
+<thead>
+<tr>
+<th>Done?</th>
+<th>MsgType</th>
+<th>Rule name</th>
+<th>Addon type</th>
+<th>Description</th>
+<th>File Type</th>
+<th>Source ref</th>
+<th>Old Code</th>
+<th>New Code</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>❌</td>
+<td>notice</td>
+<td>addEventListener_fourth</td>
+<td></td>
+<td><code>addEventListener</code> called with truthy fourth argument</td>
+<td></td>
+<td><a href="https://github.com/mozilla/amo-validator/blob/master/validator/testcases/javascript/instanceactions.py">testcases/javascript/instanceactions.py</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>❌</td>
+<td>warning</td>
+<td>called_createelement</td>
+<td></td>
+<td>createElement() used to create script tag</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>❌</td>
+<td>warning</td>
+<td>createelement_variable</td>
+<td></td>
+<td>Variable element type being created</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>❌</td>
+<td>warning</td>
+<td>setting_on*</td>
+<td></td>
+<td>on* attribute being set using setAttribute</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>❌</td>
+<td>warning</td>
+<td>launch</td>
+<td></td>
+<td>Potentially dangerous use of <code>launch()</code></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>❌</td>
+<td>warning</td>
+<td>executeSimpleSQL_dynamic</td>
+<td></td>
+<td>SQL statements should be static strings</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>❌</td>
+<td>warning</td>
+<td>executeSimpleSQL</td>
+<td></td>
+<td>Synchronous SQL should not be used</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>❌</td>
+<td>warning</td>
+<td>called_set_preference</td>
+<td></td>
+<td>Attempt to set a dangerous preference</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3>instanceproperties</h3>
+<table>
+<thead>
+<tr>
+<th>Done?</th>
+<th>MsgType</th>
+<th>Rule name</th>
+<th>Addon type</th>
+<th>Description</th>
+<th>File Type</th>
+<th>Source ref</th>
+<th>Old Code</th>
+<th>New Code</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>❌</td>
+<td>warning</td>
+<td>event_assignment</td>
+<td></td>
+<td>Event handler assignment via %s</td>
+<td></td>
+<td><a href="https://github.com/mozilla/amo-validator/blob/master/validator/testcases/javascript/instanceproperties.py">testcases/javascript/instanceproperties.py</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>❌</td>
+<td>warning</td>
+<td>script_assignment</td>
+<td></td>
+<td>Scripts should not be created with <code>%s</code></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>❌</td>
+<td>warning</td>
+<td>variable_assignment</td>
+<td></td>
+<td>Markup should not be passed to <code>%s</code> dynamically.</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>❌</td>
+<td>warning</td>
+<td>on*_str_assignment</td>
+<td></td>
+<td>on* property being assigned string</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>❌</td>
+<td>warning</td>
+<td>handleEvent</td>
+<td></td>
+<td><code>handleEvent</code> no longer implemented in Gecko 18</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>❌</td>
+<td>warning</td>
+<td>__proto__</td>
+<td></td>
+<td>Using <code>__proto__</code> or <code>setPrototypeOf</code> to set a prototype is now deprecated</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>❌</td>
+<td>warning</td>
+<td>__exposedProps__</td>
+<td></td>
+<td>Use of deprecated <code>__exposedProps__</code> declaration</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>❌</td>
+<td>warning</td>
+<td>set_non_literal</td>
+<td></td>
+<td><code>contentScript</code> properties should not be used</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3>jsshell</h3>
+<table>
+<thead>
+<tr>
+<th>Done?</th>
+<th>MsgType</th>
+<th>Rule name</th>
+<th>Addon type</th>
+<th>Description</th>
+<th>File Type</th>
+<th>Source ref</th>
+<th>Old Code</th>
+<th>New Code</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>✅</td>
+<td>warning</td>
+<td>syntax_error</td>
+<td></td>
+<td>JavaScript Compile-Time Error</td>
+<td></td>
+<td><a href="https://github.com/mozilla/amo-validator/blob/master/validator/testcases/javascript/jsshell.py">testcases/javascript/jsshell.py</a></td>
+<td></td>
+<td>JS_SYNTAX_ERROR</td>
+</tr>
+<tr>
+<td>❌</td>
+<td>notice</td>
+<td>recursion_error</td>
+<td></td>
+<td>JS too deeply nested for validation</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>❌</td>
+<td>error</td>
+<td>retrieving_tree</td>
+<td></td>
+<td>JS reflection error prevented validation</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3>jstypes</h3>
+<table>
+<thead>
+<tr>
+<th>Done?</th>
+<th>MsgType</th>
+<th>Rule name</th>
+<th>Addon type</th>
+<th>Description</th>
+<th>File Type</th>
+<th>Source ref</th>
+<th>Old Code</th>
+<th>New Code</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>❌</td>
+<td>warning</td>
+<td>unwrapped_js_object</td>
+<td></td>
+<td>Assignment of unwrapped JS Object's properties</td>
+<td></td>
+<td><a href="https://github.com/mozilla/amo-validator/blob/master/validator/testcases/javascript/jstypes.py">testcases/javascript/jstypes.py</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>❌</td>
+<td>warning</td>
+<td>const_overwrite</td>
+<td></td>
+<td>Overwritten constant value</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>❌</td>
+<td>warning</td>
+<td>global_overwrite</td>
+<td></td>
+<td>Global overwrite. An attempt to overwrite a global variable was made in some JS code</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>❌</td>
+<td>warning</td>
+<td>global_member_deletion</td>
+<td></td>
+<td>Members of global object may not be deleted</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>❌</td>
+<td>warning</td>
+<td>jetpack_abs_uri</td>
+<td></td>
+<td>Absolute URIs in Jetpack 1.4 are disallowed</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3>predefinedentities</h3>
+<p><em>this file appear to contain lot of data but looks to be used elsewhere a second pass would be good to check</em></p>
+<table>
+<thead>
+<tr>
+<th>Done?</th>
+<th>MsgType</th>
+<th>Rule name</th>
+<th>Addon type</th>
+<th>Description</th>
+<th>File Type</th>
+<th>Source ref</th>
+<th>Old Code</th>
+<th>New Code</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>❌</td>
+<td>warning</td>
+<td>dangerous_global</td>
+<td></td>
+<td>The FUEL library is now deprecated</td>
+<td></td>
+<td><a href="https://github.com/mozilla/amo-validator/blob/master/validator/testcases/javascript/predefinedentities.py">testcases/javascript/predefinedentities.py</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>❌</td>
+<td>warning</td>
+<td>changes (search_service)</td>
+<td></td>
+<td>Potentially dangerous use of the search service</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>❌</td>
+<td>warning</td>
+<td>write (windows_registry)</td>
+<td></td>
+<td>Writes to the registry may be dangerous</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3>Traverser</h3>
+<table>
+<thead>
+<tr>
+<th>Done?</th>
+<th>MsgType</th>
+<th>Rule name</th>
+<th>Addon type</th>
+<th>Description</th>
+<th>File Type</th>
+<th>Source ref</th>
+<th>Old Code</th>
+<th>New Code</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>❌</td>
+<td>warning</td>
+<td>namespace_pollution</td>
+<td></td>
+<td>JavaScript namespace pollution</td>
+<td></td>
+<td><a href="https://github.com/mozilla/amo-validator/blob/master/validator/testcases/javascript/traverser.py">testcases/javascript/traverser.py</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>❌</td>
+<td>warning</td>
+<td>dangerous_global</td>
+<td></td>
+<td>Access to the <code>%s</code> property is deprecated for security or other reasons.</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2>Markup</h2>
+<h3>CSS</h3>
+<table>
+<thead>
+<tr>
+<th>Done?</th>
+<th>MsgType</th>
+<th>Rule name</th>
+<th>Addon type</th>
+<th>Description</th>
+<th>File Type</th>
+<th>Source ref</th>
+<th>Old Code</th>
+<th>New Code</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>✅</td>
+<td>warning</td>
+<td>-moz-binding_external</td>
+<td></td>
+<td>Illegal reference to external scripts</td>
+<td></td>
+<td><a href="https://github.com/mozilla/amo-validator/blob/master/validator/testcases/markup/csstester.py">testcases/markup/csstester.py</a></td>
+<td></td>
+<td>MOZ_BINDING_EXT_REFERENCE</td>
+</tr>
+<tr>
+<td>❌</td>
+<td>warning</td>
+<td>remote_url</td>
+<td></td>
+<td>Themes may not reference remote resources</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>❌</td>
+<td>warning</td>
+<td>identity_box</td>
+<td></td>
+<td>Modification to identity box</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>❌</td>
+<td>info? (should be an error)</td>
+<td>unicode_decode</td>
+<td></td>
+<td>Unicode decode error.</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>✅</td>
+<td>error</td>
+<td>CSS syntax error</td>
+<td>A CSS syntax error was detected</td>
+<td></td>
+<td>N/A</td>
+<td>N/A</td>
+<td>CSS_SYNTAX_ERROR</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3>HTML</h3>
+<table>
+<thead>
+<tr>
+<th>Done?</th>
+<th>MsgType</th>
+<th>Rule name</th>
+<th>Addon type</th>
+<th>Description</th>
+<th>File Type</th>
+<th>Source ref</th>
+<th>Old Code</th>
+<th>New Code</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>❌</td>
+<td>warning</td>
+<td>parse_error</td>
+<td></td>
+<td>There was an error parsing a markup file</td>
+<td></td>
+<td><a href="https://github.com/mozilla/amo-validator/blob/master/validator/testcases/markup/markuptester.py">testcases/markup/markuptester.py</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>❌</td>
+<td>error</td>
+<td>banned_element</td>
+<td></td>
+<td>A banned markup element was found</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>❌</td>
+<td>warning</td>
+<td>unsafe_theme_xbl_element</td>
+<td>theme</td>
+<td>Certain XBL elements are disallowed in full themes</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>❌</td>
+<td>warning</td>
+<td>theme_xbl_property</td>
+<td>theme</td>
+<td>Themes are not allowed to use XBL properties</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>❌</td>
+<td>warning</td>
+<td>unsafe_langpack_theme</td>
+<td>theme / langpack</td>
+<td>Unsafe tag for add-on type</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>❌</td>
+<td>warning</td>
+<td>remote_src_href</td>
+<td>theme / langpack</td>
+<td><code>src</code>/<code>href</code> attributes must be local</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>✅</td>
+<td>warning</td>
+<td>prefwindow_id</td>
+<td></td>
+<td><code>&lt;prefwindow&gt;</code> elements must have IDs</td>
+<td></td>
+<td></td>
+<td></td>
+<td>PREFWINDOW_REQUIRES_ID</td>
+</tr>
+<tr>
+<td>❌</td>
+<td>warning</td>
+<td>iframe_type_unsafe</td>
+<td></td>
+<td>iframe/browser missing 'type' attribute</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>❌</td>
+<td>warning</td>
+<td>iframe_type_unsafe</td>
+<td></td>
+<td>Typeless iframes/browsers must be local</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>❌</td>
+<td>warning</td>
+<td>banned_remote_scripts</td>
+<td></td>
+<td>Scripts must not be remote</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>❌</td>
+<td>warning</td>
+<td>jetpack_abs_uri</td>
+<td></td>
+<td>Absolute URI referenced in Jetpack 1.4</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>❌</td>
+<td>warning</td>
+<td>theme_attr_prefix</td>
+<td>theme</td>
+<td>Attribute contains banned prefix</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>❌</td>
+<td>warning</td>
+<td>dom_manipulation_handler</td>
+<td></td>
+<td>DOM Mutation Events Prohibited</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>❌</td>
+<td>warning</td>
+<td>generic_ids</td>
+<td></td>
+<td>Overlay contains generically-named IDs</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>❌</td>
+<td>warning</td>
+<td>complex_script</td>
+<td></td>
+<td>Long inline script</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>❌</td>
+<td>warning</td>
+<td>extra_closing_tags</td>
+<td></td>
+<td>Markup parsing error</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>❌</td>
+<td>warning</td>
+<td>extra_closing_tags</td>
+<td></td>
+<td>Parse error: tag closed before opened</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>❌</td>
+<td>warning</td>
+<td>invalid_nesting</td>
+<td></td>
+<td>Markup invalidly nested</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2>chrome.manifest</h2>
+<table>
+<thead>
+<tr>
+<th>Done?</th>
+<th>MsgType</th>
+<th>Rule name</th>
+<th>Addon type</th>
+<th>Description</th>
+<th>File Type</th>
+<th>Source ref</th>
+<th>Old Code</th>
+<th>New Code</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>✅</td>
+<td>warning</td>
+<td>resource_modules</td>
+<td></td>
+<td>Potentially dangerous category entry</td>
+<td>chrome.manifest</td>
+<td><a href="https://github.com/mozilla/amo-validator/blob/master/validator/testcases/chromemanifest.py">testcases/chromemanifest.py</a></td>
+<td>'resource_modules')</td>
+<td>DANGEROUS_CATEGORY</td>
+</tr>
+<tr>
+<td>❌</td>
+<td>error</td>
+<td>resource_modules</td>
+<td></td>
+<td>Resources should not be packages in the 'modules' namespace</td>
+<td>chrome.manifest</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>❌</td>
+<td>warning</td>
+<td>missing_triplicates</td>
+<td></td>
+<td><code>content</code> instruction missing information</td>
+<td>chrome.manifest</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>❌</td>
+<td>error</td>
+<td>godlikea</td>
+<td></td>
+<td>Banned namespace in chrome.manifest</td>
+<td>chrome.manifest</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>❌</td>
+<td>notice</td>
+<td>trailing</td>
+<td></td>
+<td>Content instruction URIs must end with trailing slash</td>
+<td>chrome.manifest</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2>Content</h2>
+<table>
+<thead>
+<tr>
+<th>Done?</th>
+<th>MsgType</th>
+<th>Rule name</th>
+<th>Addon type</th>
+<th>Description</th>
+<th>File Type</th>
+<th>Source ref</th>
+<th>Old Code</th>
+<th>New Code</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>❌</td>
+<td>warning</td>
+<td>found_in_chrome_manifest</td>
+<td></td>
+<td>xpcnativewrappers not allowed in chrome.manifest</td>
+<td>chrome.manifest</td>
+<td><a href="https://github.com/mozilla/amo-validator/blob/master/validator/testcases/content.py">testcases/content.py</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>❌</td>
+<td>warning</td>
+<td>found_in_chrome_manifest</td>
+<td></td>
+<td>newTab.xul is now newTab.xhtml</td>
+<td>chrome.manifest</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>❌</td>
+<td>warning</td>
+<td>hidden_files</td>
+<td></td>
+<td>Hidden files and folders flagged</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>❌</td>
+<td>warning</td>
+<td>flagged_files</td>
+<td></td>
+<td>Flagged filename found</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>❌</td>
+<td>notice</td>
+<td>blacklisted_js_library</td>
+<td></td>
+<td>JS Library Detected</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>❌</td>
+<td>warning</td>
+<td>invalid_chrome_url</td>
+<td></td>
+<td>Invalid chrome URL</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>❌</td>
+<td>warning</td>
+<td>too_much_js</td>
+<td></td>
+<td>TOO MUCH JS FOR EXHAUSTIVE VALIDATION</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>❌</td>
+<td>error</td>
+<td>unsigned_sub_xpi</td>
+<td></td>
+<td>Sub-package must be signed</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>❌</td>
+<td>warning</td>
+<td>signed_xpi</td>
+<td></td>
+<td>Package already signed</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>❌</td>
+<td>error</td>
+<td>jar_subpackage_corrupt</td>
+<td></td>
+<td>Subpackage corrupt</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2>Install.rdf</h2>
+<p>TODO: Alot of these are generated so this will need expanded with each unique code.</p>
+<table>
+<thead>
+<tr>
+<th>Done?</th>
+<th>MsgType</th>
+<th>Rule name</th>
+<th>Addon type</th>
+<th>Description</th>
+<th>File Type</th>
+<th>Source ref</th>
+<th>Old Code</th>
+<th>New Code</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>✅</td>
+<td>error</td>
+<td>shouldnt_exist</td>
+<td></td>
+<td>Banned element in install.rdf</td>
+<td>install.rdf</td>
+<td><a href="https://github.com/mozilla/amo-validator/blob/master/validator/testcases/installrdf.py">96</a></td>
+<td>('testcases_installrdf', '_test_rdf', 'shouldnt_exist')</td>
+<td>TAG_NOT_ALLOWED_HIDDEN</td>
+</tr>
+<tr>
+<td>✅</td>
+<td>error</td>
+<td>shouldnt_exist</td>
+<td></td>
+<td>Banned element in install.rdf</td>
+<td>install.rdf</td>
+<td><a href="https://github.com/mozilla/amo-validator/blob/master/validator/testcases/installrdf.py">96</a></td>
+<td>('testcases_installrdf', '_test_rdf', 'shouldnt_exist')</td>
+<td>TAG_NOT_ALLOWED_UPDATEKEY</td>
+</tr>
+<tr>
+<td>✅</td>
+<td>error</td>
+<td>shouldnt_exist</td>
+<td></td>
+<td>Banned element in install.rdf</td>
+<td>install.rdf</td>
+<td><a href="https://github.com/mozilla/amo-validator/blob/master/validator/testcases/installrdf.py">96</a></td>
+<td>('testcases_installrdf', '_test_rdf', 'shouldnt_exist')</td>
+<td>TAG_NOT_ALLOWED_UPDATEURL</td>
+</tr>
+<tr>
+<td>✅</td>
+<td>notice</td>
+<td>obsolete</td>
+<td></td>
+<td>Obsolete element in install.rdf</td>
+<td>install.rdf</td>
+<td></td>
+<td></td>
+<td>TAG_OBSOLETE_FILE</td>
+</tr>
+<tr>
+<td>✅</td>
+<td>notice</td>
+<td>obsolete</td>
+<td></td>
+<td>Obsolete element in install.rdf</td>
+<td>install.rdf</td>
+<td></td>
+<td></td>
+<td>TAG_OBSOLETE_REQUIRES</td>
+</tr>
+<tr>
+<td>✅</td>
+<td>notice</td>
+<td>obsolete</td>
+<td></td>
+<td>Obsolete element in install.rdf</td>
+<td>install.rdf</td>
+<td></td>
+<td></td>
+<td>TAG_OBSOLETE_SKIN</td>
+</tr>
+<tr>
+<td>❌</td>
+<td>warning</td>
+<td>optionsType</td>
+<td></td>
+<td>&lt;em😮ptionsType&gt; has bad value.</td>
+<td>install.rdf</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>❌</td>
+<td>notice</td>
+<td>unrecognized</td>
+<td></td>
+<td>Unrecognized element in install.rdf</td>
+<td>install.rdf</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>❌</td>
+<td>notice</td>
+<td>missing_updateKey</td>
+<td></td>
+<td>Missing updateKey element</td>
+<td>install.rdf</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>❌</td>
+<td>notice</td>
+<td>Missing updateURL element</td>
+<td></td>
+<td>Missing updateURL element</td>
+<td>install.rdf</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>❌</td>
+<td>error</td>
+<td>missing_addon</td>
+<td></td>
+<td>install.rdf missing element(s).</td>
+<td>install.rdf</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2>Jetpack</h2>
+<table>
+<thead>
+<tr>
+<th>Done?</th>
+<th>MsgType</th>
+<th>Rule name</th>
+<th>Addon type</th>
+<th>Description</th>
+<th>File Type</th>
+<th>Source ref</th>
+<th>Old Code</th>
+<th>New Code</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>❌</td>
+<td>warning</td>
+<td>mismatched_version</td>
+<td></td>
+<td>Jetpack module version mismatch</td>
+<td></td>
+<td><a href="https://github.com/mozilla/amo-validator/blob/master/validator/testcases/jetpack.py">testcases/jetpack.py</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>❌</td>
+<td>warning</td>
+<td>extra_hashes</td>
+<td></td>
+<td>Extra hashes registered in harness-options</td>
+<td>harness-options.json</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>❌</td>
+<td>warning</td>
+<td>bad_harness-options.json</td>
+<td></td>
+<td>harness-options.json is not decodable JSON</td>
+<td>harness-options.json</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>❌</td>
+<td>warning</td>
+<td>harness-options_missing_elements</td>
+<td></td>
+<td>Elements are missing from harness-options.json</td>
+<td>harness-options.json</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>❌</td>
+<td>error</td>
+<td>redacted_version</td>
+<td></td>
+<td>Unsupported version of Add-on SDK</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>❌</td>
+<td>warning</td>
+<td>outdated_version</td>
+<td></td>
+<td>Outdated version of Add-on SDK</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>❌</td>
+<td>notice</td>
+<td>future_version</td>
+<td></td>
+<td>Future version of Add-on SDK unrecognized</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>❌</td>
+<td>warning</td>
+<td>irregular_module_location</td>
+<td></td>
+<td>Irregular Jetpack module location</td>
+<td>harness-options.json</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>❌</td>
+<td>warning</td>
+<td>irregular_module_elements</td>
+<td></td>
+<td>Irregular Jetpack module elements</td>
+<td>harness-options.json</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>❌</td>
+<td>warning</td>
+<td>missing_jetpack_module</td>
+<td></td>
+<td>Missing Jetpack module</td>
+<td>harness-options.json</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>❌</td>
+<td>warning</td>
+<td>mismatched_checksum</td>
+<td></td>
+<td>Jetpack module hash mismatch</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2>l10ncompleteness</h2>
+<table>
+<thead>
+<tr>
+<th>Done?</th>
+<th>MsgType</th>
+<th>Rule name</th>
+<th>Addon type</th>
+<th>Description</th>
+<th>File Type</th>
+<th>Source ref</th>
+<th>Old Code</th>
+<th>New Code</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>❌</td>
+<td>warning</td>
+<td>manager_absent</td>
+<td></td>
+<td>Listed locale does not exist</td>
+<td>chrome.manifest</td>
+<td><a href="https://github.com/mozilla/amo-validator/blob/master/validator/testcases/l10ncompleteness.py">testcases/l10ncompleteness.py</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>❌</td>
+<td>notice</td>
+<td>no_locales</td>
+<td></td>
+<td>Add-on appears not to be localized</td>
+<td>chrome.manifest</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>❌</td>
+<td>info?</td>
+<td>missing_app_support</td>
+<td></td>
+<td>Supported app missing in localization completeness</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>❌</td>
+<td>warning</td>
+<td>find_corresponding_locale</td>
+<td></td>
+<td>Could not find corresponding locale</td>
+<td>chrome.manifest</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>❌</td>
+<td>warning</td>
+<td>missing_file</td>
+<td></td>
+<td>Missing translation file</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>❌</td>
+<td>warning</td>
+<td>missing_translation_entity</td>
+<td></td>
+<td>Missing translation entity</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>❌</td>
+<td>notice</td>
+<td>unchanged_entities</td>
+<td></td>
+<td>Unchanged translation entities</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>❌</td>
+<td>warning</td>
+<td>unexpected_encodings</td>
+<td></td>
+<td>Unexpected encodings in locale files</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2>langpacks</h2>
+<table>
+<thead>
+<tr>
+<th>Done?</th>
+<th>MsgType</th>
+<th>Rule name</th>
+<th>Addon type</th>
+<th>Description</th>
+<th>File Type</th>
+<th>Source ref</th>
+<th>Old Code</th>
+<th>New Code</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>❌</td>
+<td>warning</td>
+<td>invalid_subject</td>
+<td></td>
+<td>Invalid chrome.manifest subject. chrome.manifest files in language packs are only allowed to contain items that are prefixed with 'locale', 'manifest', or 'override'</td>
+<td>chrome.manifest</td>
+<td><a href="https://github.com/mozilla/amo-validator/blob/master/validator/testcases/langpack.py">testcases/langpack.py</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>❌</td>
+<td>warning</td>
+<td>invalid_override</td>
+<td></td>
+<td>Invalid chrome.manifest object/predicate.</td>
+<td>chrome://*/locale/*</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>❌</td>
+<td>warning</td>
+<td>unsafe_content_html</td>
+<td></td>
+<td>Unsafe HTML found in language pack files</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>❌</td>
+<td>warning</td>
+<td>unsafe_content_link</td>
+<td></td>
+<td>Unsafe remote resource found in language pack</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2>package.json</h2>
+<table>
+<thead>
+<tr>
+<th>Done?</th>
+<th>MsgType</th>
+<th>Rule name</th>
+<th>Addon type</th>
+<th>Description</th>
+<th>File Type</th>
+<th>Source ref</th>
+<th>Old Code</th>
+<th>New Code</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>❌</td>
+<td>error</td>
+<td>field_required</td>
+<td></td>
+<td>Your package.json is missing a required field</td>
+<td></td>
+<td><a href="https://github.com/mozilla/amo-validator/blob/master/validator/testcases/packagejson.py">testcases/packagejson.py</a></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2>Package layout</h2>
+<table>
+<thead>
+<tr>
+<th>Done?</th>
+<th>MsgType</th>
+<th>Rule name</th>
+<th>Addon type</th>
+<th>Description</th>
+<th>File Type</th>
+<th>Source ref</th>
+<th>Old Code</th>
+<th>New Code</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>❌</td>
+<td>notice</td>
+<td>deprecated_file</td>
+<td></td>
+<td>Extension contains a deprecated file</td>
+<td></td>
+<td><a href="https://github.com/mozilla/amo-validator/blob/master/validator/testcases/packagelayout.py">testcases/packagelayout.py</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>❌</td>
+<td>warning</td>
+<td>disallowed_file_type</td>
+<td></td>
+<td>Flagged file type found</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>❌</td>
+<td>warning</td>
+<td>java_jar</td>
+<td></td>
+<td>Java JAR file detected</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>❌</td>
+<td>warning</td>
+<td>disallowed_extension</td>
+<td></td>
+<td>Flagged file extensions found</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>❌</td>
+<td>error</td>
+<td>test_godlikea</td>
+<td></td>
+<td>Banned 'godlikea' chrome namespace</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>❌</td>
+<td>notice</td>
+<td>disallowed_file_type</td>
+<td></td>
+<td>(Binary) Flagged file type found</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>❌</td>
+<td>error</td>
+<td>missing_install_rdf</td>
+<td></td>
+<td>Add-on missing install.rdf</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>✅</td>
+<td>warning</td>
+<td>duplicate_entries</td>
+<td></td>
+<td>Package contains duplicate entries</td>
+<td></td>
+<td></td>
+<td></td>
+<td>DUPLICATE_XPI_ENTRY</td>
+</tr>
+<tr>
+<td>❌</td>
+<td>warning</td>
+<td>should_be_true</td>
+<td></td>
+<td>Add-on should set &lt;em:unpack&gt; to true</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>❌</td>
+<td>notice</td>
+<td>should_be_false</td>
+<td></td>
+<td>Add-on contains JAR files, no &lt;em:unpack&gt;</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>❌</td>
+<td>warning</td>
+<td>unknown_file</td>
+<td></td>
+<td>Unknown file found in add-on</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>❌</td>
+<td>warning</td>
+<td>missing_required</td>
+<td></td>
+<td>Required file missing</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2>Type detection</h2>
+<table>
+<thead>
+<tr>
+<th>Done?</th>
+<th>MsgType</th>
+<th>Rule name</th>
+<th>Addon type</th>
+<th>Description</th>
+<th>File Type</th>
+<th>Source ref</th>
+<th>Old Code</th>
+<th>New Code</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>✅</td>
+<td>notice</td>
+<td>missing_install_rdf</td>
+<td></td>
+<td>Add-on missing install.rdf for type detection</td>
+<td></td>
+<td><a href="https://github.com/mozilla/amo-validator/blob/master/validator/typedetection.py#L22">22</a></td>
+<td>('typedetection', 'detect_type', 'missing_install_rdf')</td>
+<td>TYPE_NO_INSTALL_RDF</td>
+</tr>
+<tr>
+<td>✅</td>
+<td>error</td>
+<td>invalid_em_type</td>
+<td></td>
+<td>The only valid values for &lt;em:type&gt; are 2, 4, 8, and 32</td>
+<td></td>
+<td><a href="https://github.com/mozilla/amo-validator/blob/master/validator/typedetection.py#L46">46</a></td>
+<td>('typedetection', 'detect_type', 'invalid_em_type')</td>
+<td>TYPE_INVALID</td>
+</tr>
+<tr>
+<td>✅</td>
+<td>notice</td>
+<td>no_em:type</td>
+<td></td>
+<td>No &lt;em:type&gt; element found in install.rdf</td>
+<td></td>
+<td><a href="https://github.com/mozilla/amo-validator/blob/master/validator/typedetection.py#L66">66</a></td>
+<td>('typedetection', 'detect_type', 'no_em:type')</td>
+<td>TYPE_MISSING</td>
+</tr>
+<tr>
+<td>✅</td>
+<td>error</td>
+<td>undeterminable_type</td>
+<td></td>
+<td>Unable to determine add-on type</td>
+<td></td>
+<td><a href="https://github.com/mozilla/amo-validator/blob/master/validator/submain.py#L195">195</a></td>
+<td>('main', 'test_package', 'undeterminable_type')</td>
+<td>TYPE_NOT_DETERMINED</td>
+</tr>
+</tbody>
+</table>
+<h2>Themes</h2>
+<table>
+<thead>
+<tr>
+<th>Done?</th>
+<th>MsgType</th>
+<th>Rule name</th>
+<th>Addon type</th>
+<th>Description</th>
+<th>File Type</th>
+<th>Source ref</th>
+<th>Old Code</th>
+<th>New Code</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>❌</td>
+<td>warning</td>
+<td>invalid_chrome_manifest_subject</td>
+<td>theme</td>
+<td>chrome.manifest files for full themes are only allowed to have 'skin' and 'style' items. Other types of items are disallowed for security reasons.'</td>
+<td>chrome.manifest</td>
+<td><a href="https://github.com/mozilla/amo-validator/blob/master/validator/testcases/themes.py">testcases/themes.py</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>❌</td>
+<td>warning</td>
+<td>theme_js</td>
+<td>theme</td>
+<td>Themes should not contain executable code.</td>
+<td>*.js</td>
+<td><a href="https://github.com/mozilla/amo-validator/blob/master/validator/testcases/themes.py">testcases/scripting.py</a></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2>Target Versions</h2>
+<table>
+<thead>
+<tr>
+<th>Done?</th>
+<th>MsgType</th>
+<th>Rule name</th>
+<th>Addon type</th>
+<th>Description</th>
+<th>File Type</th>
+<th>Source ref</th>
+<th>Old Code</th>
+<th>New Code</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>❌</td>
+<td>error</td>
+<td>invalid_min_version</td>
+<td>addon?</td>
+<td>The minimum version that was specified is not an acceptable version number for the Mozilla product that it corresponds with.</td>
+<td>install.rdf</td>
+<td><a href="https://github.com/mozilla/amo-validator/blob/master/validator/testcases/targetapplication.py">testcases/targetapplication.py</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>❌</td>
+<td>error</td>
+<td>invalid_max_version</td>
+<td>addon?</td>
+<td>The maximum version that was specified is not an acceptable version number for the Mozilla product that it corresponds with.</td>
+<td>install.rdf</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>❌</td>
+<td>error</td>
+<td>invalid_version_order</td>
+<td>addon?</td>
+<td>The version numbers provided for the application in question are not in the correct order. The maximum version must be greater than the minimum version.'</td>
+<td>install.rdf</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>❌</td>
+<td>warning</td>
+<td>missing_minversion</td>
+<td>addon?</td>
+<td>Missing minVersion property. A targetApplication element is missing its minVersion property. This may cause it to be ignored as invalid.</td>
+<td>install.rdf</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>❌</td>
+<td>warning</td>
+<td>missing_maxversion</td>
+<td>addon?</td>
+<td>Missing maxVersion property. A targetApplication element is missing its maxVersion property. This may cause it to be ignored as invalid.</td>
+<td>install.rdf</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>❌</td>
+<td>warning</td>
+<td>duplicate_targetapps</td>
+<td>addon?</td>
+<td>Found duplicate &lt;em:targetApplication&gt; elements. Multiple targetApplication elements were found in the install.manifest file that refer to the same application GUID. There should not be duplicate target applications entries.</td>
+<td>install.rdf</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>❌</td>
+<td>error</td>
+<td>no_mozilla_support</td>
+<td>addon?</td>
+<td>None of the target applications listed in                     'install.rdf are supported Mozilla products. At least one official Mozilla product must be supported for inclusion on addons.mozilla.org. See <a href="https://addons.mozilla.org/firefox/pages/appversions/">appversions</a> for more information on supported target applications on AMO.'</td>
+<td>install.rdf</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2>Regex Tests</h2>
+<p><em>Note the rule names for these do not come from the code</em></p>
+<table>
+<thead>
+<tr>
+<th>Done?</th>
+<th>MsgType</th>
+<th>Rule name</th>
+<th>Addon type</th>
+<th>Description</th>
+<th>File Type</th>
+<th>Source ref</th>
+<th>Old Code</th>
+<th>New Code</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>❌</td>
+<td>warning</td>
+<td>invalid_sync_services_object_reuse</td>
+<td></td>
+<td>Sync services objects are not intended to be re-used</td>
+<td></td>
+<td><a href="https://github.com/mozilla/amo-validator/blob/master/validator/testcases/regex.py">testcases/regex.py</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>❌</td>
+<td>warning</td>
+<td>warn_mouse_events</td>
+<td></td>
+<td>Mouse events may cause performance issues</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>❌</td>
+<td>warning</td>
+<td>dom_mutation_events_disallowed</td>
+<td></td>
+<td>DOM mutation event use prohibited</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>❌</td>
+<td>warning</td>
+<td>new_tab_override</td>
+<td></td>
+<td>Possible attempt to override new tab page</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>❌</td>
+<td>warning</td>
+<td>unsafe_template_escape</td>
+<td></td>
+<td>Potentially unsafe template escape sequence</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>❌</td>
+<td>warning</td>
+<td>js_protoype_extension_dissallowed</td>
+<td></td>
+<td>JS prototype extension not allowed</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>✅</td>
+<td>warning</td>
+<td>mozindexdb_removed</td>
+<td></td>
+<td>mozIndexedDB has been removed</td>
+<td></td>
+<td></td>
+<td></td>
+<td>MOZINDEXEDDB</td>
+</tr>
+<tr>
+<td>✅</td>
+<td>warning</td>
+<td>mozIndexedDB property not allowed</td>
+<td></td>
+<td>mozIndexedDB has been removed</td>
+<td></td>
+<td>N/A</td>
+<td>N/A</td>
+<td>MOZINDEXEDDB_PROPERTY</td>
+</tr>
+<tr>
+<td>❌</td>
+<td>warning</td>
+<td>composition_features_removed</td>
+<td></td>
+<td>nsICompositionStringSynthesizer, sendCompositionEvent and createCompositionStringSynthesizer were removed</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>❌</td>
+<td>warning</td>
+<td>asyncfetch2_newchannel2_deprecated</td>
+<td></td>
+<td>asyncFetch2 and newChannel2 are now deprecated</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>❌</td>
+<td>warning</td>
+<td>onproxyavailable_asyncresolve_changed</td>
+<td></td>
+<td>The onProxyAvailable and asyncResolve functions have changed</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>❌</td>
+<td>warning</td>
+<td>noSuchMethod_deprecated</td>
+<td></td>
+<td>The __noSuchMethod__ property has been deprecated</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>❌</td>
+<td>warning</td>
+<td>sendAsBinary_removed</td>
+<td></td>
+<td>The function sendAsBinary() in XMLHttpRequest has been removed</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>❌</td>
+<td>warning</td>
+<td>theme_prefs_changed</td>
+<td></td>
+<td>The preferences used to store theme selection have changed</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>❌</td>
+<td>warning</td>
+<td>old_keywords_api_deprecated</td>
+<td></td>
+<td>The old keywords API is deprecated</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>❌</td>
+<td>warning</td>
+<td>fuel_library_deprecated</td>
+<td></td>
+<td>The FUEL library is now deprecated</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>❌</td>
+<td>warning</td>
+<td>dictjsm_removed</td>
+<td></td>
+<td>The Dict.jsm module has been removed</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>❌</td>
+<td>warning</td>
+<td>sessionstore_state_write_removed</td>
+<td></td>
+<td>The sessionstore-state-write notification has been removed.</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>❌</td>
+<td>warning</td>
+<td>nsISSLErrorListener_removed</td>
+<td></td>
+<td>The nsISSLErrorListener interface has been removed</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>❌</td>
+<td>warning</td>
+<td>widget_module_removed</td>
+<td></td>
+<td>The widget module has been removed</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>❌</td>
+<td>warning</td>
+<td>user_profile_data_reference</td>
+<td></td>
+<td>Reference to critical user profile data</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>❌</td>
+<td>warning</td>
+<td>em_action_requested</td>
+<td></td>
+<td>Obsolete Extension Manager API</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>❌</td>
+<td>warning</td>
+<td>unsafe_pref_branch_ref</td>
+<td></td>
+<td>Potentially unsafe preference branch  referenced (x2)</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>❌</td>
+<td>warning</td>
+<td>browsernewtaburl_pref_removed</td>
+<td></td>
+<td>The browser.newtab.url preference has been removed</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>❌</td>
+<td>warning</td>
+<td>password_stored_in_prefs</td>
+<td></td>
+<td>Passwords should not be stored in preferences</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2>Thunderbird Regex Tests</h2>
+<p><em>Note the rule names for these do not come from the code</em></p>
+<table>
+<thead>
+<tr>
+<th>Done?</th>
+<th>MsgType</th>
+<th>Rule name</th>
+<th>Addon type</th>
+<th>Description</th>
+<th>File Type</th>
+<th>Source ref</th>
+<th>Old Code</th>
+<th>New Code</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>❌</td>
+<td>warning</td>
+<td>removed_labels_in_use</td>
+<td></td>
+<td>Removed labels in use (Repeated for multiple versions)</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+</body>
+</html>
