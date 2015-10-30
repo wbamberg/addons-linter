@@ -27,7 +27,9 @@
 </style>
 <body class="markdown-body">
   <h1 id="validator-rules">Validator Rules <a class="header-anchor" href="#validator-rules" aria-hidden="true">¶</a></h1>
-<p>We should try and list out all the validation rules we know of by file type. E.g. .js, .rdf, .manifest etc.</p>
+<p>This is automatically published at http://mozilla.github.io/addons-validator/.
+To update the rules update <code>docs/rules.md</code> in the
+<a href="https://github.com/mozilla/addons-validator">github repo</a>.</p>
 <h2 id="javascript">JavaScript <a class="header-anchor" href="#javascript" aria-hidden="true">¶</a></h2>
 <h3 id="actions">Actions <a class="header-anchor" href="#actions" aria-hidden="true">¶</a></h3>
 <table>
@@ -196,15 +198,15 @@
 <td></td>
 </tr>
 <tr>
-<td>❌</td>
+<td>✅</td>
 <td>warning</td>
 <td>shallow</td>
 <td></td>
 <td>Shallow XPCOM wrappers should not be used</td>
 <td></td>
 <td></td>
-<td></td>
-<td></td>
+<td>('testcases_js_xpcom', 'xpcnativewrapper', 'shallow'</td>
+<td>SHALLOW_WRAPPER</td>
 </tr>
 <tr>
 <td>❌</td>
