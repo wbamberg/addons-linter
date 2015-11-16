@@ -1953,7 +1953,7 @@ To update it edit <code>docs/rules.md</code> in the
 <td></td>
 <td><a href="https://github.com/mozilla/amo-validator/blob/master/validator/typedetection.py#L46">46</a></td>
 <td>('typedetection', 'detect_type', 'invalid_em_type')</td>
-<td>TYPE_INVALID</td>
+<td>RDF_TYPE_INVALID</td>
 </tr>
 <tr>
 <td>✅</td>
@@ -1964,7 +1964,18 @@ To update it edit <code>docs/rules.md</code> in the
 <td></td>
 <td><a href="https://github.com/mozilla/amo-validator/blob/master/validator/typedetection.py#L66">66</a></td>
 <td>('typedetection', 'detect_type', 'no_em:type')</td>
-<td>TYPE_MISSING</td>
+<td>RDF_TYPE_MISSING</td>
+</tr>
+<tr>
+<td>✅</td>
+<td>notice</td>
+<td>no_em:name</td>
+<td></td>
+<td>No <code>&lt;em:name&gt;</code> element found in install.rdf</td>
+<td></td>
+<td><a href="https://github.com/mozilla/amo-validator/blob/master/validator/typedetection.py#L66">66</a></td>
+<td>new rule</td>
+<td>RDF_NAME_MISSING</td>
 </tr>
 <tr>
 <td>✅</td>
@@ -2442,7 +2453,8 @@ To update it edit <code>docs/rules.md</code> in the
 <p><em>Note these are all new and don't exist in the old validator</em></p>
 <p>| Done? | MsgType | Rule name | Addon type | Description | File Type | Source ref | Old Code | New Code |
 | ----- | ------- | --------- | ---------- | ----------- | --------- | ---------- | -------- |
-| ✅ | warning | N/A |  | manifest_version in manifest.json is not valid. | | null | MANIFEST_VERSION_INVALID |</p>
+| ✅ | error | N/A |  | manifest_version in manifest.json is not valid. | | null | MANIFEST_VERSION_INVALID |
+| ✅ | error | N/A |  | name in manifest.json is not valid. | | null | MANIFEST_NAME_INVALID |</p>
 
 </body>
 </html>
