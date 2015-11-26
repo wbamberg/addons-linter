@@ -1429,11 +1429,44 @@ To update it edit <code>docs/rules.md</code> in the
 <td>error</td>
 <td></td>
 <td></td>
-<td>GUID must be 255 characters or less.</td>
+<td>top level guid must be 255 characters or less</td>
 <td>install.rdf</td>
-<td>#214</td>
 <td></td>
-<td>GUID_TOO_LONG</td>
+<td></td>
+<td>RDF_GUID_TOO_LONG</td>
+</tr>
+<tr>
+<td>✅</td>
+<td>error</td>
+<td></td>
+<td></td>
+<td>top level guid missing from install.rdf</td>
+<td>install.rdf</td>
+<td></td>
+<td></td>
+<td>RDF_ID_MISSING</td>
+</tr>
+<tr>
+<td>✅</td>
+<td>error</td>
+<td></td>
+<td></td>
+<td>top level version missing from install.rdf.</td>
+<td>install.rdf</td>
+<td></td>
+<td></td>
+<td>RDF_VERSION_MISSING</td>
+</tr>
+<tr>
+<td>✅</td>
+<td>error</td>
+<td></td>
+<td></td>
+<td>top level name missing from install.rdf</td>
+<td>install.rdf</td>
+<td></td>
+<td></td>
+<td>RDF_NAME_MISSING</td>
 </tr>
 </tbody>
 </table>
@@ -2475,9 +2508,9 @@ To update it edit <code>docs/rules.md</code> in the
 <tr>
 <td>✅</td>
 <td>error</td>
-<td>N/A</td>
-<td></td>
+<td>Web extension</td>
 <td>manifest_version in manifest.json is not valid.</td>
+<td>manifest.json</td>
 <td></td>
 <td>null</td>
 <td>MANIFEST_VERSION_INVALID</td>
@@ -2486,12 +2519,23 @@ To update it edit <code>docs/rules.md</code> in the
 <tr>
 <td>✅</td>
 <td>error</td>
-<td>N/A</td>
-<td></td>
-<td>name in manifest.json is not valid.</td>
+<td>Web extension</td>
+<td>name property missing from manifest.json</td>
+<td>manifest.json</td>
 <td></td>
 <td>null</td>
-<td>MANIFEST_NAME_INVALID</td>
+<td>PROP_NAME_MISSING</td>
+<td></td>
+</tr>
+<tr>
+<td>✅</td>
+<td>error</td>
+<td>Web extension</td>
+<td>version property missing from manifest.json</td>
+<td>manifest.json</td>
+<td></td>
+<td>null</td>
+<td>PROP_VERSION_MISSING</td>
 <td></td>
 </tr>
 </tbody>
