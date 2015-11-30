@@ -344,15 +344,15 @@ To update it edit <code>docs/rules.md</code> in the
 <td>NSI_SOUND_PLAY</td>
 </tr>
 <tr>
-<td>❌</td>
+<td>✅</td>
 <td>warning</td>
 <td>init</td>
 <td></td>
 <td><code>init</code> should not be called with a null first argument</td>
 <td></td>
 <td></td>
-<td></td>
-<td></td>
+<td><a href="https://github.com/mozilla/amo-validator/blob/master/validator/testcases/javascript/entity_values.py#L129">testcases/javascript/entity_values.py</a></td>
+<td>INIT_NULL_ARG</td>
 </tr>
 <tr>
 <td>✅</td>
@@ -2531,11 +2531,33 @@ To update it edit <code>docs/rules.md</code> in the
 <td>✅</td>
 <td>error</td>
 <td>Web extension</td>
+<td>name property is invalid in manifest.json</td>
+<td>manifest.json</td>
+<td></td>
+<td>null</td>
+<td>PROP_NAME_INVALID</td>
+<td></td>
+</tr>
+<tr>
+<td>✅</td>
+<td>error</td>
+<td>Web extension</td>
 <td>version property missing from manifest.json</td>
 <td>manifest.json</td>
 <td></td>
 <td>null</td>
 <td>PROP_VERSION_MISSING</td>
+<td></td>
+</tr>
+<tr>
+<td>✅</td>
+<td>error</td>
+<td>Web extension</td>
+<td>version is invalid in manifest.json</td>
+<td>manifest.json</td>
+<td></td>
+<td>null</td>
+<td>PROP_VERSION_INVALID</td>
 <td></td>
 </tr>
 </tbody>
